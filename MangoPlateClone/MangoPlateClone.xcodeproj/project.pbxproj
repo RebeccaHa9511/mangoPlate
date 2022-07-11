@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B230D68287A6B57003EE9AB /* PlacesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B230D67287A6B57003EE9AB /* PlacesCollectionViewCell.xib */; };
+		8B230D6D287BE64E003EE9AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B230D6B287BE64E003EE9AB /* HomeViewController.swift */; };
+		8B230D6E287BE64E003EE9AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B230D6C287BE64E003EE9AB /* HomeViewController.xib */; };
+		8B230D71287BE942003EE9AB /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B230D6F287BE942003EE9AB /* BannerCollectionViewCell.swift */; };
+		8B230D72287BE942003EE9AB /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B230D70287BE942003EE9AB /* BannerCollectionViewCell.xib */; };
+		8B47736F2873F0DF0095469A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47736E2873F0DF0095469A /* AppDelegate.swift */; };
+		8B4773712873F0DF0095469A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773702873F0DF0095469A /* SceneDelegate.swift */; };
+		8B4773732873F0DF0095469A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773722873F0DF0095469A /* ViewController.swift */; };
+		8B4773762873F0DF0095469A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4773742873F0DF0095469A /* Main.storyboard */; };
+		8B4773782873F0E10095469A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4773772873F0E10095469A /* Assets.xcassets */; };
+		8B47737B2873F0E10095469A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4773792873F0E10095469A /* LaunchScreen.storyboard */; };
+		8B47738628741EE90095469A /* MangoPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47738528741EE90095469A /* MangoPickViewController.swift */; };
+		8B47738828741EF90095469A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47738728741EF90095469A /* UserInfoViewController.swift */; };
+		8B47738A28741F390095469A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47738928741F390095469A /* MainViewController.swift */; };
+		8B47738C287426150095469A /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47738B287426140095469A /* MapVC.swift */; };
+		8B47738E287443A90095469A /* PlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47738D287443A90095469A /* PlacesCollectionViewCell.swift */; };
+		8B4773912874501C0095469A /* EatDealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773902874501C0095469A /* EatDealVC.swift */; };
+		8B477393287450270095469A /* StoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B477392287450270095469A /* StoryVC.swift */; };
+		8B477395287450330095469A /* TopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B477394287450330095469A /* TopListVC.swift */; };
+		8B477399287542770095469A /* PlacesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B477398287542770095469A /* PlacesData.swift */; };
+		8B47739C2875A3A90095469A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47739B2875A3A90095469A /* NetworkManager.swift */; };
+		8B4773A028769EA10095469A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47739F28769EA10095469A /* Constants.swift */; };
+		8B4773A22876C42C0095469A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A12876C42B0095469A /* IndicatorView.swift */; };
+		8B4773A428771BFA0095469A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A328771BFA0095469A /* CustomButton.swift */; };
+		8B4773A628771F6A0095469A /* CustomTabbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A528771F6A0095469A /* CustomTabbarButton.swift */; };
+		8B4773A928771FF60095469A /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A728771FF60095469A /* NewPostViewController.swift */; };
+		8B4773AA28771FF60095469A /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B4773A828771FF60095469A /* NewPostViewController.xib */; };
+		8B4773AC287720890095469A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773AB287720890095469A /* TabbarController.swift */; };
+		8BB9243C2878117E00E91D6E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9243A2878117E00E91D6E /* DetailViewController.swift */; };
+		8BB9243D2878117E00E91D6E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB9243B2878117E00E91D6E /* DetailViewController.xib */; };
+		C5C5813F70B706B6309556BE /* Pods_MangoPlateClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACC6854BCB93849CD1112DA /* Pods_MangoPlateClone.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B2D831C58F56941EC5DAD74 /* Pods-MangoPlateClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangoPlateClone.debug.xcconfig"; path = "Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone.debug.xcconfig"; sourceTree = "<group>"; };
+		7ACC6854BCB93849CD1112DA /* Pods_MangoPlateClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangoPlateClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B230D67287A6B57003EE9AB /* PlacesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlacesCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B230D6B287BE64E003EE9AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8B230D6C287BE64E003EE9AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		8B230D6F287BE942003EE9AB /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		8B230D70287BE942003EE9AB /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B47736B2873F0DF0095469A /* MangoPlateClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangoPlateClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B47736E2873F0DF0095469A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B4773702873F0DF0095469A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8B4773722873F0DF0095469A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B4773752873F0DF0095469A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B4773772873F0E10095469A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B47737A2873F0E10095469A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B47737C2873F0E10095469A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B47738528741EE90095469A /* MangoPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangoPickViewController.swift; sourceTree = "<group>"; };
+		8B47738728741EF90095469A /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		8B47738928741F390095469A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8B47738B287426140095469A /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		8B47738D287443A90095469A /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
+		8B4773902874501C0095469A /* EatDealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDealVC.swift; sourceTree = "<group>"; };
+		8B477392287450270095469A /* StoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryVC.swift; sourceTree = "<group>"; };
+		8B477394287450330095469A /* TopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListVC.swift; sourceTree = "<group>"; };
+		8B477398287542770095469A /* PlacesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesData.swift; sourceTree = "<group>"; };
+		8B47739B2875A3A90095469A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8B47739F28769EA10095469A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8B4773A12876C42B0095469A /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		8B4773A328771BFA0095469A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8B4773A528771F6A0095469A /* CustomTabbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarButton.swift; sourceTree = "<group>"; };
+		8B4773A728771FF60095469A /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		8B4773A828771FF60095469A /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
+		8B4773AB287720890095469A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		8BB9243A2878117E00E91D6E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8BB9243B2878117E00E91D6E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		E879176589436AF6184E39BF /* Pods-MangoPlateClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangoPlateClone.release.xcconfig"; path = "Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B4773682873F0DF0095469A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5C5813F70B706B6309556BE /* Pods_MangoPlateClone.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F67ECCA4EE08FAE466890A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B2D831C58F56941EC5DAD74 /* Pods-MangoPlateClone.debug.xcconfig */,
+				E879176589436AF6184E39BF /* Pods-MangoPlateClone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		500D4074EB907A699D42EB72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ACC6854BCB93849CD1112DA /* Pods_MangoPlateClone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B4773622873F0DF0095469A = {
+			isa = PBXGroup;
+			children = (
+				8B47736D2873F0DF0095469A /* MangoPlateClone */,
+				8B47736C2873F0DF0095469A /* Products */,
+				0F67ECCA4EE08FAE466890A2 /* Pods */,
+				500D4074EB907A699D42EB72 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8B47736C2873F0DF0095469A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B47736B2873F0DF0095469A /* MangoPlateClone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B47736D2873F0DF0095469A /* MangoPlateClone */ = {
+			isa = PBXGroup;
+			children = (
+				8B4773A12876C42B0095469A /* IndicatorView.swift */,
+				8B4773A328771BFA0095469A /* CustomButton.swift */,
+				8B4773A528771F6A0095469A /* CustomTabbarButton.swift */,
+				8B47739F28769EA10095469A /* Constants.swift */,
+				8B4773AB287720890095469A /* TabbarController.swift */,
+				8B47739A2875A0F50095469A /* Networking */,
+				8B4773842873F0F70095469A /* Model */,
+				8B4773832873F0F30095469A /* View */,
+				8B4773822873F0EC0095469A /* Controller */,
+				8B47736E2873F0DF0095469A /* AppDelegate.swift */,
+				8B4773702873F0DF0095469A /* SceneDelegate.swift */,
+				8B4773772873F0E10095469A /* Assets.xcassets */,
+				8B4773792873F0E10095469A /* LaunchScreen.storyboard */,
+				8B47737C2873F0E10095469A /* Info.plist */,
+			);
+			path = MangoPlateClone;
+			sourceTree = "<group>";
+		};
+		8B4773822873F0EC0095469A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B4773722873F0DF0095469A /* ViewController.swift */,
+				8B47738928741F390095469A /* MainViewController.swift */,
+				8B230D6B287BE64E003EE9AB /* HomeViewController.swift */,
+				8B230D6C287BE64E003EE9AB /* HomeViewController.xib */,
+				8B47738B287426140095469A /* MapVC.swift */,
+				8B47738528741EE90095469A /* MangoPickViewController.swift */,
+				8B47738F287450070095469A /* Tabs */,
+				8B4773A728771FF60095469A /* NewPostViewController.swift */,
+				8B4773A828771FF60095469A /* NewPostViewController.xib */,
+				8BB9243A2878117E00E91D6E /* DetailViewController.swift */,
+				8BB9243B2878117E00E91D6E /* DetailViewController.xib */,
+				8B47738728741EF90095469A /* UserInfoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B4773832873F0F30095469A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B4773742873F0DF0095469A /* Main.storyboard */,
+				8B47738D287443A90095469A /* PlacesCollectionViewCell.swift */,
+				8B230D67287A6B57003EE9AB /* PlacesCollectionViewCell.xib */,
+				8B230D6F287BE942003EE9AB /* BannerCollectionViewCell.swift */,
+				8B230D70287BE942003EE9AB /* BannerCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B4773842873F0F70095469A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B477398287542770095469A /* PlacesData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B47738F287450070095469A /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				8B4773902874501C0095469A /* EatDealVC.swift */,
+				8B477392287450270095469A /* StoryVC.swift */,
+				8B477394287450330095469A /* TopListVC.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		8B47739A2875A0F50095469A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8B47739B2875A3A90095469A /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B47736A2873F0DF0095469A /* MangoPlateClone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B47737F2873F0E10095469A /* Build configuration list for PBXNativeTarget "MangoPlateClone" */;
+			buildPhases = (
+				F0CBFC77F69E81A5FC467DA6 /* [CP] Check Pods Manifest.lock */,
+				8B4773672873F0DF0095469A /* Sources */,
+				8B4773682873F0DF0095469A /* Frameworks */,
+				8B4773692873F0DF0095469A /* Resources */,
+				42F268B3F56C0821382CE30D /* [CP] Embed Pods Frameworks */,
+				8196763FC32D715E04812915 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MangoPlateClone;
+			productName = MangoPlateClone;
+			productReference = 8B47736B2873F0DF0095469A /* MangoPlateClone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B4773632873F0DF0095469A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					8B47736A2873F0DF0095469A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 8B4773662873F0DF0095469A /* Build configuration list for PBXProject "MangoPlateClone" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B4773622873F0DF0095469A;
+			productRefGroup = 8B47736C2873F0DF0095469A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B47736A2873F0DF0095469A /* MangoPlateClone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B4773692873F0DF0095469A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B47737B2873F0E10095469A /* LaunchScreen.storyboard in Resources */,
+				8B4773AA28771FF60095469A /* NewPostViewController.xib in Resources */,
+				8B230D72287BE942003EE9AB /* BannerCollectionViewCell.xib in Resources */,
+				8B230D68287A6B57003EE9AB /* PlacesCollectionViewCell.xib in Resources */,
+				8BB9243D2878117E00E91D6E /* DetailViewController.xib in Resources */,
+				8B4773782873F0E10095469A /* Assets.xcassets in Resources */,
+				8B4773762873F0DF0095469A /* Main.storyboard in Resources */,
+				8B230D6E287BE64E003EE9AB /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42F268B3F56C0821382CE30D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8196763FC32D715E04812915 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0CBFC77F69E81A5FC467DA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MangoPlateClone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B4773672873F0DF0095469A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B47738E287443A90095469A /* PlacesCollectionViewCell.swift in Sources */,
+				8B47738628741EE90095469A /* MangoPickViewController.swift in Sources */,
+				8B477395287450330095469A /* TopListVC.swift in Sources */,
+				8B47739C2875A3A90095469A /* NetworkManager.swift in Sources */,
+				8B4773A428771BFA0095469A /* CustomButton.swift in Sources */,
+				8B230D6D287BE64E003EE9AB /* HomeViewController.swift in Sources */,
+				8B4773A928771FF60095469A /* NewPostViewController.swift in Sources */,
+				8B4773A22876C42C0095469A /* IndicatorView.swift in Sources */,
+				8BB9243C2878117E00E91D6E /* DetailViewController.swift in Sources */,
+				8B4773912874501C0095469A /* EatDealVC.swift in Sources */,
+				8B4773A028769EA10095469A /* Constants.swift in Sources */,
+				8B4773732873F0DF0095469A /* ViewController.swift in Sources */,
+				8B230D71287BE942003EE9AB /* BannerCollectionViewCell.swift in Sources */,
+				8B47738828741EF90095469A /* UserInfoViewController.swift in Sources */,
+				8B4773A628771F6A0095469A /* CustomTabbarButton.swift in Sources */,
+				8B47738A28741F390095469A /* MainViewController.swift in Sources */,
+				8B47738C287426150095469A /* MapVC.swift in Sources */,
+				8B4773AC287720890095469A /* TabbarController.swift in Sources */,
+				8B47736F2873F0DF0095469A /* AppDelegate.swift in Sources */,
+				8B477399287542770095469A /* PlacesData.swift in Sources */,
+				8B477393287450270095469A /* StoryVC.swift in Sources */,
+				8B4773712873F0DF0095469A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8B4773742873F0DF0095469A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B4773752873F0DF0095469A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B4773792873F0E10095469A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B47737A2873F0E10095469A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B47737D2873F0E10095469A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B47737E2873F0E10095469A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B4773802873F0E10095469A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B2D831C58F56941EC5DAD74 /* Pods-MangoPlateClone.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PT9ZVNP7T4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MangoPlateClone/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rebeccaha.MangoPlateClone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8B4773812873F0E10095469A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E879176589436AF6184E39BF /* Pods-MangoPlateClone.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PT9ZVNP7T4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MangoPlateClone/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rebeccaha.MangoPlateClone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B4773662873F0DF0095469A /* Build configuration list for PBXProject "MangoPlateClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B47737D2873F0E10095469A /* Debug */,
+				8B47737E2873F0E10095469A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B47737F2873F0E10095469A /* Build configuration list for PBXNativeTarget "MangoPlateClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B4773802873F0E10095469A /* Debug */,
+				8B4773812873F0E10095469A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B4773632873F0DF0095469A /* Project object */;
+}
