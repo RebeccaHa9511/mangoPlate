@@ -1,8 +1,10 @@
-# mangoPlate Clone Coding
+# 👩🏻‍💻 MangoPlate Clone Coding
 
 * RisingCamp 5th Week Project
 
 * Used both Storyboard and Code
+
+====
 
 🌱 DAY 1
 - KaKao Social Login
