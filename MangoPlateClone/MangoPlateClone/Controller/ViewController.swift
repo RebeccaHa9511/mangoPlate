@@ -21,10 +21,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var pLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
         
     }
 
@@ -38,7 +43,7 @@ class ViewController: UIViewController {
                  else {
                   print("loginWithKakaoAccount() success.")
                   
-                     guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
+                     guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Tabbar") as? Tabbar else { return }
                              // 화면 전환 애니메이션 설정
                              mainVC.modalTransitionStyle = .coverVertical
                              // 전환된 화면이 보여지는 방법 설정 (fullScreen)

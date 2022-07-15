@@ -6,58 +6,61 @@
 //
 
 import UIKit
-import Tabman
-import Pageboy
 
-class MangoPickViewController: TabmanViewController {
+class MangoPickViewController: UIViewController {
+    
+    
+    @IBOutlet weak var eatDealButton: UIButton!
+    @IBOutlet weak var storyButton: UIButton!
+    @IBOutlet weak var topListButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var animationBar: UIView!
+    
 
-    var viewControllers = [EatDealVC(), StoryVC(), TopListVC()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        self.changeView()
     }
     
-
-
-}
-
-extension MangoPickViewController: PageboyViewControllerDataSource, TMBarDataSource {
-    
-    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-//        let item = TMBarItem(title: "")
-//        item.title = "Page \(index)"
-//        item.image = UIImage(named: "image.png")
-//
-//        return item
-        
-        // MARK: - Tab 안 글씨들
-        switch index {
-        case 0:
-            return TMBarItem(title: "EAT딜")
-        case 1:
-            return TMBarItem(title: "스토리")
-        case 2:
-            return TMBarItem(title: "Top리스트")
-        default:
-            let title = "Page \(index)"
-            return TMBarItem(title: title)
+    @IBAction func topTabBarbuttonTab(_ sender: UIButton) {
+        sender.isSelected = true
+        if sender.tag == 0 {
+            storyButton.isSelected = false
+            topListButton.isSelected = false
+            slideViewAnimation(moveX: 0)
+        } else if sender.tag == 1{
+            eatDealButton.isSelected = false
+            topListButton.isSelected = false
+            slideViewAnimation(moveX: self.view.frame.width/3)
         }
-
+        else{
+            eatDealButton.isSelected = false
+            storyButton.isSelected = false
+            slideViewAnimation(moveX: self.view.frame.width/3*2)
+        }
+        
     }
     
-    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        return viewControllers.count
+    func slideViewAnimation(moveX: CGFloat){
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5,initialSpringVelocity: 1, options: .allowUserInteraction,
+                       animations: {
+                        self.animationBar.transform = CGAffineTransform(translationX: moveX, y: 0)
+                       }, completion: {_ in
+                       })
     }
     
-    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
-        return viewControllers[index]
+    func changeView(){
+        guard let EATDealVC = self.storyboard?.instantiateViewController(identifier: "EatDealVC") as? EatDealVC else {
+            return
+        }
+        for view in containerView.subviews{
+            view.removeFromSuperview()
+        }
+        EATDealVC.willMove(toParent: self)
+        containerView.frame = EATDealVC.view.bounds
+        containerView.addSubview(EATDealVC.view)
+        self.addChild(EATDealVC)
+        EATDealVC.didMove(toParent: self)
     }
-    
-    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        return nil
-    }
-    
-    
 }

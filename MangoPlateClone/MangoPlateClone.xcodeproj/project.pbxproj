@@ -8,10 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		8B230D68287A6B57003EE9AB /* PlacesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B230D67287A6B57003EE9AB /* PlacesCollectionViewCell.xib */; };
-		8B230D6D287BE64E003EE9AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B230D6B287BE64E003EE9AB /* HomeViewController.swift */; };
-		8B230D6E287BE64E003EE9AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B230D6C287BE64E003EE9AB /* HomeViewController.xib */; };
 		8B230D71287BE942003EE9AB /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B230D6F287BE942003EE9AB /* BannerCollectionViewCell.swift */; };
 		8B230D72287BE942003EE9AB /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B230D70287BE942003EE9AB /* BannerCollectionViewCell.xib */; };
+		8B375A89287C26080016D322 /* KakaoLocalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A88287C26080016D322 /* KakaoLocalResponse.swift */; };
+		8B375A8B287C274A0016D322 /* NaverImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A8A287C274A0016D322 /* NaverImageDataManager.swift */; };
+		8B375A8D287C27640016D322 /* NaverImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A8C287C27640016D322 /* NaverImageData.swift */; };
+		8B375A8F287C27DF0016D322 /* KakaoLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A8E287C27DF0016D322 /* KakaoLocalDataManager.swift */; };
+		8B375A91287C28BE0016D322 /* RestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A90287C28BE0016D322 /* RestInfo.swift */; };
+		8B375A95287C37EF0016D322 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A94287C37EF0016D322 /* Tabbar.swift */; };
+		8B375A97287C40B30016D322 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A96287C40B30016D322 /* BaseViewController.swift */; };
+		8B375A99287C41A00016D322 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A98287C41A00016D322 /* Animation.swift */; };
+		8B375A9B287D69BD0016D322 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B375A9A287D69BD0016D322 /* UIButton.swift */; };
 		8B47736F2873F0DF0095469A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47736E2873F0DF0095469A /* AppDelegate.swift */; };
 		8B4773712873F0DF0095469A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773702873F0DF0095469A /* SceneDelegate.swift */; };
 		8B4773732873F0DF0095469A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773722873F0DF0095469A /* ViewController.swift */; };
@@ -26,15 +33,11 @@
 		8B4773912874501C0095469A /* EatDealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773902874501C0095469A /* EatDealVC.swift */; };
 		8B477393287450270095469A /* StoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B477392287450270095469A /* StoryVC.swift */; };
 		8B477395287450330095469A /* TopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B477394287450330095469A /* TopListVC.swift */; };
-		8B477399287542770095469A /* PlacesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B477398287542770095469A /* PlacesData.swift */; };
-		8B47739C2875A3A90095469A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47739B2875A3A90095469A /* NetworkManager.swift */; };
 		8B4773A028769EA10095469A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47739F28769EA10095469A /* Constants.swift */; };
 		8B4773A22876C42C0095469A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A12876C42B0095469A /* IndicatorView.swift */; };
 		8B4773A428771BFA0095469A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A328771BFA0095469A /* CustomButton.swift */; };
 		8B4773A628771F6A0095469A /* CustomTabbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A528771F6A0095469A /* CustomTabbarButton.swift */; };
 		8B4773A928771FF60095469A /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773A728771FF60095469A /* NewPostViewController.swift */; };
-		8B4773AA28771FF60095469A /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B4773A828771FF60095469A /* NewPostViewController.xib */; };
-		8B4773AC287720890095469A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4773AB287720890095469A /* TabbarController.swift */; };
 		8BB9243C2878117E00E91D6E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9243A2878117E00E91D6E /* DetailViewController.swift */; };
 		8BB9243D2878117E00E91D6E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB9243B2878117E00E91D6E /* DetailViewController.xib */; };
 		C5C5813F70B706B6309556BE /* Pods_MangoPlateClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACC6854BCB93849CD1112DA /* Pods_MangoPlateClone.framework */; };
@@ -44,10 +47,17 @@
 		0B2D831C58F56941EC5DAD74 /* Pods-MangoPlateClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangoPlateClone.debug.xcconfig"; path = "Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone.debug.xcconfig"; sourceTree = "<group>"; };
 		7ACC6854BCB93849CD1112DA /* Pods_MangoPlateClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangoPlateClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B230D67287A6B57003EE9AB /* PlacesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlacesCollectionViewCell.xib; sourceTree = "<group>"; };
-		8B230D6B287BE64E003EE9AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		8B230D6C287BE64E003EE9AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		8B230D6F287BE942003EE9AB /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B230D70287BE942003EE9AB /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B375A88287C26080016D322 /* KakaoLocalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLocalResponse.swift; sourceTree = "<group>"; };
+		8B375A8A287C274A0016D322 /* NaverImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverImageDataManager.swift; sourceTree = "<group>"; };
+		8B375A8C287C27640016D322 /* NaverImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverImageData.swift; sourceTree = "<group>"; };
+		8B375A8E287C27DF0016D322 /* KakaoLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLocalDataManager.swift; sourceTree = "<group>"; };
+		8B375A90287C28BE0016D322 /* RestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestInfo.swift; sourceTree = "<group>"; };
+		8B375A94287C37EF0016D322 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		8B375A96287C40B30016D322 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8B375A98287C41A00016D322 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		8B375A9A287D69BD0016D322 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		8B47736B2873F0DF0095469A /* MangoPlateClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangoPlateClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B47736E2873F0DF0095469A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4773702873F0DF0095469A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,15 +74,11 @@
 		8B4773902874501C0095469A /* EatDealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDealVC.swift; sourceTree = "<group>"; };
 		8B477392287450270095469A /* StoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryVC.swift; sourceTree = "<group>"; };
 		8B477394287450330095469A /* TopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListVC.swift; sourceTree = "<group>"; };
-		8B477398287542770095469A /* PlacesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesData.swift; sourceTree = "<group>"; };
-		8B47739B2875A3A90095469A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8B47739F28769EA10095469A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B4773A12876C42B0095469A /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		8B4773A328771BFA0095469A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8B4773A528771F6A0095469A /* CustomTabbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarButton.swift; sourceTree = "<group>"; };
 		8B4773A728771FF60095469A /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
-		8B4773A828771FF60095469A /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
-		8B4773AB287720890095469A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		8BB9243A2878117E00E91D6E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8BB9243B2878117E00E91D6E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		E879176589436AF6184E39BF /* Pods-MangoPlateClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangoPlateClone.release.xcconfig"; path = "Target Support Files/Pods-MangoPlateClone/Pods-MangoPlateClone.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,11 +134,14 @@
 		8B47736D2873F0DF0095469A /* MangoPlateClone */ = {
 			isa = PBXGroup;
 			children = (
+				8B375A96287C40B30016D322 /* BaseViewController.swift */,
+				8B375A98287C41A00016D322 /* Animation.swift */,
 				8B4773A12876C42B0095469A /* IndicatorView.swift */,
 				8B4773A328771BFA0095469A /* CustomButton.swift */,
+				8B375A9A287D69BD0016D322 /* UIButton.swift */,
 				8B4773A528771F6A0095469A /* CustomTabbarButton.swift */,
 				8B47739F28769EA10095469A /* Constants.swift */,
-				8B4773AB287720890095469A /* TabbarController.swift */,
+				8B375A94287C37EF0016D322 /* Tabbar.swift */,
 				8B47739A2875A0F50095469A /* Networking */,
 				8B4773842873F0F70095469A /* Model */,
 				8B4773832873F0F30095469A /* View */,
@@ -151,13 +160,10 @@
 			children = (
 				8B4773722873F0DF0095469A /* ViewController.swift */,
 				8B47738928741F390095469A /* MainViewController.swift */,
-				8B230D6B287BE64E003EE9AB /* HomeViewController.swift */,
-				8B230D6C287BE64E003EE9AB /* HomeViewController.xib */,
 				8B47738B287426140095469A /* MapVC.swift */,
 				8B47738528741EE90095469A /* MangoPickViewController.swift */,
 				8B47738F287450070095469A /* Tabs */,
 				8B4773A728771FF60095469A /* NewPostViewController.swift */,
-				8B4773A828771FF60095469A /* NewPostViewController.xib */,
 				8BB9243A2878117E00E91D6E /* DetailViewController.swift */,
 				8BB9243B2878117E00E91D6E /* DetailViewController.xib */,
 				8B47738728741EF90095469A /* UserInfoViewController.swift */,
@@ -180,7 +186,9 @@
 		8B4773842873F0F70095469A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8B477398287542770095469A /* PlacesData.swift */,
+				8B375A88287C26080016D322 /* KakaoLocalResponse.swift */,
+				8B375A8C287C27640016D322 /* NaverImageData.swift */,
+				8B375A90287C28BE0016D322 /* RestInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,7 +206,8 @@
 		8B47739A2875A0F50095469A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				8B47739B2875A3A90095469A /* NetworkManager.swift */,
+				8B375A8A287C274A0016D322 /* NaverImageDataManager.swift */,
+				8B375A8E287C27DF0016D322 /* KakaoLocalDataManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -265,13 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B47737B2873F0E10095469A /* LaunchScreen.storyboard in Resources */,
-				8B4773AA28771FF60095469A /* NewPostViewController.xib in Resources */,
 				8B230D72287BE942003EE9AB /* BannerCollectionViewCell.xib in Resources */,
 				8B230D68287A6B57003EE9AB /* PlacesCollectionViewCell.xib in Resources */,
 				8BB9243D2878117E00E91D6E /* DetailViewController.xib in Resources */,
 				8B4773782873F0E10095469A /* Assets.xcassets in Resources */,
 				8B4773762873F0DF0095469A /* Main.storyboard in Resources */,
-				8B230D6E287BE64E003EE9AB /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,25 +351,30 @@
 				8B47738E287443A90095469A /* PlacesCollectionViewCell.swift in Sources */,
 				8B47738628741EE90095469A /* MangoPickViewController.swift in Sources */,
 				8B477395287450330095469A /* TopListVC.swift in Sources */,
-				8B47739C2875A3A90095469A /* NetworkManager.swift in Sources */,
+				8B375A89287C26080016D322 /* KakaoLocalResponse.swift in Sources */,
+				8B375A97287C40B30016D322 /* BaseViewController.swift in Sources */,
 				8B4773A428771BFA0095469A /* CustomButton.swift in Sources */,
-				8B230D6D287BE64E003EE9AB /* HomeViewController.swift in Sources */,
 				8B4773A928771FF60095469A /* NewPostViewController.swift in Sources */,
 				8B4773A22876C42C0095469A /* IndicatorView.swift in Sources */,
 				8BB9243C2878117E00E91D6E /* DetailViewController.swift in Sources */,
+				8B375A8B287C274A0016D322 /* NaverImageDataManager.swift in Sources */,
 				8B4773912874501C0095469A /* EatDealVC.swift in Sources */,
 				8B4773A028769EA10095469A /* Constants.swift in Sources */,
+				8B375A95287C37EF0016D322 /* Tabbar.swift in Sources */,
+				8B375A8F287C27DF0016D322 /* KakaoLocalDataManager.swift in Sources */,
+				8B375A91287C28BE0016D322 /* RestInfo.swift in Sources */,
 				8B4773732873F0DF0095469A /* ViewController.swift in Sources */,
 				8B230D71287BE942003EE9AB /* BannerCollectionViewCell.swift in Sources */,
 				8B47738828741EF90095469A /* UserInfoViewController.swift in Sources */,
 				8B4773A628771F6A0095469A /* CustomTabbarButton.swift in Sources */,
 				8B47738A28741F390095469A /* MainViewController.swift in Sources */,
+				8B375A8D287C27640016D322 /* NaverImageData.swift in Sources */,
 				8B47738C287426150095469A /* MapVC.swift in Sources */,
-				8B4773AC287720890095469A /* TabbarController.swift in Sources */,
 				8B47736F2873F0DF0095469A /* AppDelegate.swift in Sources */,
-				8B477399287542770095469A /* PlacesData.swift in Sources */,
 				8B477393287450270095469A /* StoryVC.swift in Sources */,
+				8B375A99287C41A00016D322 /* Animation.swift in Sources */,
 				8B4773712873F0DF0095469A /* SceneDelegate.swift in Sources */,
+				8B375A9B287D69BD0016D322 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

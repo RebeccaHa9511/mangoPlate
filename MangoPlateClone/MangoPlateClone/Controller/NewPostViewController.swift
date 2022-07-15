@@ -7,65 +7,75 @@
 
 import UIKit
 
-class NewPostViewController: ViewController {
+class NewPostViewController: UIViewController {
 
-    private let myShoweatdealButton: CustomTabbarButton = {
-        let button = CustomTabbarButton(frame: CGRect(x: 40, y: 520, width: 65, height: 32))
-        return button
-    }()
-    private let myDidgoButton: CustomTabbarButton = {
-        let button = CustomTabbarButton(frame: CGRect(x: 40, y: 590, width: 65, height: 32))
-        return button
-    }()
-    private let myWritereviewButton: CustomTabbarButton = {
-        let button = CustomTabbarButton(frame: CGRect(x: 40, y: 660, width: 65, height: 32))
-        return button
-    }()
-    private let myRegisterresButton: CustomTabbarButton = {
-        let button = CustomTabbarButton(frame: CGRect(x: 40, y: 730, width: 65, height: 32))
-        return button
-    }()
-    
-    @IBAction func closeButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var menuStackView: UIStackView!
+    var xButtonMidY: CGFloat!
+    var screenHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemOrange
-        // Do any additional setup after loading the view.
-        setButtons()
+        dismissButton.layer.cornerRadius = dismissButton.frame.width/2
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(animated)
+        prepareSetAnimation()
     }
     
-    func setButtons() {
-        view.addSubview(myShoweatdealButton)
-        let viewModel = PlusCustomButtonViewModel(title: "EAT딜 보러가기", imgname: "showeatdeal")
-        myShoweatdealButton.configure(with: viewModel)
-        myShoweatdealButton.addTarget(self, action: #selector(showEatDeal), for: .touchUpInside)
-        
-        view.addSubview(myDidgoButton)
-        let viewMode2 = PlusCustomButtonViewModel(title: "가봤어요", imgname: "didgo")
-        myDidgoButton.configure(with: viewMode2)
-        
-        view.addSubview(myWritereviewButton)
-        let viewModel3 = PlusCustomButtonViewModel(title: "리뷰 쓰기", imgname: "writereview")
-        myWritereviewButton.configure(with: viewModel3)
-        
-        view.addSubview(myRegisterresButton)
-        let viewModel4 = PlusCustomButtonViewModel(title: "식당 등록하기", imgname: "registerres")
-        myRegisterresButton.configure(with: viewModel4)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showSetAnimation()
     }
     
-    @objc func showEatDeal() {
-        self.dismiss(animated: false, completion: nil)
-        if let tabBarController = self.presentingViewController as? TabbarController {
-            tabBarController.selectedIndex = 1
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showDismissAnimation()
     }
-
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showDismissAnimation()
+    }
+    
+    private func prepareSetAnimation(){
+        dismissButton.transform = CGAffineTransform(translationX: 0, y: 0).rotated(by: -46)
+        dismissButton.alpha = 1
+        menuStackView.transform = CGAffineTransform(translationX: 0, y: 60)
+        menuStackView.alpha = 0
+    }
+    
+    private func showSetAnimation(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction,
+                       animations: {
+                        //변하기 전의 모습으로는 identity로 접근이 가능함.
+                        self.dismissButton.transform = CGAffineTransform.identity
+                        self.dismissButton.alpha = 1
+                       }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.5, options: .allowUserInteraction,
+                       animations: {
+                        
+                        self.menuStackView.transform = CGAffineTransform.identity
+                        self.menuStackView.alpha = 1
+                       }, completion: nil)
+    }
+    
+    private func prepareDismissAnimation(){
+        dismissButton.transform = CGAffineTransform.identity
+        dismissButton.alpha = 1
+    }
+    
+    private func showDismissAnimation(){
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6,initialSpringVelocity: 2, options: .allowUserInteraction,
+                       animations: {
+                        
+                        self.dismissButton.transform = CGAffineTransform(translationX: 0, y: 0).rotated(by: -45)
+                       }, completion: nil)
+    }
+    
+    @IBAction func dismissVCTab(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

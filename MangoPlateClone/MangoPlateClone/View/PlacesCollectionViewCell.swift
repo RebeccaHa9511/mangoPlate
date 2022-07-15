@@ -16,13 +16,7 @@ class PlacesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     
-//    @IBOutlet weak var distanceLabel: UILabel!
-//
-//    @IBOutlet weak var viewsCount: UILabel!
-//    @IBOutlet weak var reviewsCountLabel: UILabel!
-//    @IBOutlet weak var ratingLabel: UILabel!
-    
-    
+
 
     }
 

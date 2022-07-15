@@ -8,20 +8,32 @@
 import UIKit
 import Alamofire
 import CoreLocation
+import Kingfisher
 
 
-class MainViewController: UIViewController, UIScrollViewDelegate{
+class MainViewController: UIViewController{
     
-    var restrauntList: [Item] = []
 
+    var restInfos: [RestInfo] = []
+    var page = 1
+    
+    var locationManager = CLLocationManager()
+    let kakaoLocalDataManager = KakaoLocalDataManager()
+    let naverImageDataManager = NaverImageDataManager()
+    var refreashControl = UIRefreshControl()
+    
+    //위치정보
+    var currentLocationString: String = "강남구"
+    var x = "127.02776284632832"
+    var y = "37.498229652849226"
     
     //배너
-    @IBOutlet weak var bannerScrollView: UIScrollView!
-    var bannerImages = [UIImage(named: "banner1"), UIImage(named: "banner2"), UIImage(named: "banner3")]
-    var imageViews = [UIImageView]()
+    var isAvailable = true
+    var nowPage : Int = 0
+    let bannerImgLst : [String] = ["banner1", "banner2", "banner3"]
+    @IBOutlet weak var bannerCollectionView: UICollectionView!
     
-    
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewheight: NSLayoutConstraint!
     let layout = UICollectionViewFlowLayout()
@@ -29,22 +41,25 @@ class MainViewController: UIViewController, UIScrollViewDelegate{
     
     @IBOutlet weak var filterView: UIView!
     
-
     
-    @IBOutlet weak var bannerPageControl: UIPageControl!
-    var nowPage = 0
-    
-    
+    @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     
-    lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.delegate = self
-        
-        return manager
-    }()
+    @objc func pullToRefreash(_ sender: Any) {
+        self.restInfos = []
+        locationManager.requestLocation()
+        kakaoLocalDataManager.fetchCurrentLocation(x: x, y: y) { locationString in
+            
+            self.currentLocationString = locationString
+            self.locationButton.titleLabel?.text = self.currentLocationString
+        }
+        kakaoLocalDataManager.fetchRestaurants(x: x, y: y, page: 1, delegate: self)
+        self.page = 1
+        self.isAvailable = true
+
+
+    }
     
     private let myLocationButton: MyCustomButton = {
         let button = MyCustomButton(frame: CGRect(x: 245, y: 7, width: 80, height: 32))
@@ -59,33 +74,48 @@ class MainViewController: UIViewController, UIScrollViewDelegate{
         return button
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.locationButton.titleLabel?.text = currentLocationString
+    }
 
     // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NetworkManager.shared.getData(viewController: self)
+//        NetworkManager.shared.getData()
         
-        
-        
-        self.locationManager.delegate = self
-        self.locationManager = CLLocationManager()
-        setupLocation()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+
         requestNotificationPermission()
+        bannerTimer()
+        
+        //현재 위도경도에 대한 지역명 요청
+        kakaoLocalDataManager.fetchCurrentLocation(x: x, y: y) { locationString in
+            self.locationButton.titleLabel?.text = locationString
+            print("💸💸💸💸   \(locationString)")
+        }
+        
+        self.showIndicator()
+        kakaoLocalDataManager.fetchRestaurants(x: x, y: y, page: 1, delegate: self)
         
        //배너
-        setBannerPageControl()
-        bannerScrollView.delegate = self
-        addBannerScrollView()
+        self.bannerCollectionView.delegate = self
+        self.bannerCollectionView.dataSource = self
         
         //네비게이션버튼
-        configureButtons()
+//        configureButtons()
         
         //컬렉션뷰
+        self.bannerCollectionView.register(UINib(nibName: "BannerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "bannerCell")
         self.collectionView.register(UINib(nibName: "PlacesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlacesCollectionViewCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.refreshControl = refreashControl
+        refreashControl.addTarget(self, action: #selector(pullToRefreash(_:)), for: .valueChanged)
         setupCollectionView()
 
         
@@ -100,25 +130,15 @@ class MainViewController: UIViewController, UIScrollViewDelegate{
         
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        showIndicator()
-//
-//        }
-//
-//    override func viewDidAppear(_ animated: Bool) {
-//        dismissIndicator()
-//
-//    }
+
     // MARK: - LIFE CYCLE
-    override func viewDidLayoutSubviews() {
-        self.changeHeight()
-    }
+//    override func viewDidLayoutSubviews() {
+//        self.changeHeight()
+//    }
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -133,11 +153,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate{
         layout.scrollDirection = .vertical
 
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width = collectionView.frame.width / 2 - 15
+            let width = collectionView.frame.width
             layout.itemSize = CGSize(width: width, height: width / 19 * 25)
-            layout.minimumInteritemSpacing = 5
-            layout.minimumLineSpacing = 10
-            layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 5
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         }
        
     }
@@ -155,31 +175,22 @@ class MainViewController: UIViewController, UIScrollViewDelegate{
     }
     
     // MARK: - Banner설정
-     func addBannerScrollView() {
-           for i in 0..<bannerImages.count {
-               let imageView = UIImageView()
-               let xPos = self.view.frame.width * CGFloat(i)
-               imageView.frame = CGRect(x: xPos, y: 0, width: bannerScrollView.bounds.width, height: bannerScrollView.bounds.height)
-               imageView.image = bannerImages[i]
-               bannerScrollView.addSubview(imageView)
-               bannerScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
-           }
-       }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-           let value = bannerScrollView.contentOffset.x/bannerScrollView.frame.size.width
-           bannerPageControlSelectedPage(currentPage: Int(round(value)))
-       }
-    
-    func setBannerPageControl(){
-        bannerPageControl.numberOfPages = bannerImages.count
-  
+    func bannerTimer() {
+        let _: Timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { (Timer) in
+            self.bannerMove()
+        }
     }
-    private func bannerPageControlSelectedPage(currentPage:Int) {
-          bannerPageControl.currentPage = currentPage
-      }
-    
-  
+    func bannerMove() {
+       
+        if self.nowPage == bannerImgLst.count-1 {
+            bannerCollectionView.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .right, animated: true)
+            self.nowPage = 0
+            return
+        }
+        self.nowPage += 1
+        bannerCollectionView.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
+    }
+
     
     // MARK: - 맵 버튼
     @IBAction func mapButtonTapped(_ sender: UIButton) {
@@ -206,20 +217,66 @@ class MainViewController: UIViewController, UIScrollViewDelegate{
     }
                            }
 
-// MARK: - 알림 권한
+// MARK: 알림
 func requestNotificationPermission(){
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
         if didAllow {
-            // 허용했을 경우
+            
             print("Push: 권한 허용")
         } else {
-            // 거부했을 경우
+            
             print("Push: 권한 거부")
         }
     })
 }
+// MARK: - 네트워크 성공시 실행
+extension MainViewController {
+    
+    // 네트워크 성공시 실행
+    func didRetrieveLocal(response: KakaoLocalResponse) {
+        
+        DispatchQueue.main.async {
+           self.collectionView.refreshControl?.endRefreshing()
+        }
+        
+        if response.meta.is_end {
+            self.isAvailable = false
+        } else {
+            self.isAvailable = true
+        }
+        print("\(response.documents)")
+        
+        
+        for (index, detail) in response.documents.enumerated() {
+            //각각의 셀에 대해 이미지 요청
+            naverImageDataManager.fetchImage(place_name: detail.place_name, location: currentLocationString) { urlString in
+                if urlString != "요청실패" {
+                    self.dismissIndicator()
+                    
+                    //이미지 urlString 을 받아온 경우. 이를 구조체로 묶어 뷰컨트롤러에 추가.
+                    self.restInfos.append(RestInfo(urlString: urlString, detail: detail))
+                    
+                    //사용자 응답성 개선을 위해 main 큐에서 reload
+                
+                    self.collectionView.reloadData()
+                
+                    
+                } else {
+                    
+                    self.dismissIndicator()
+                    print("\(index)이미지 요청 실패")
+                }
+            }
+        }
+    }
+    
+    func failedToRequest(message: String) {
+        self.dismissIndicator()
+        self.isAvailable = true
+    }
+}
 
-// MARK: - Delegates
+ // MARK: - Delegates
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -228,32 +285,52 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return restrauntList.count
+        if collectionView == self.bannerCollectionView {
+            return self.bannerImgLst.count
+        } else if collectionView == self.collectionView {
+            return restInfos.count
+        } else {
+            return 4
         }
+    }
     
-    
+    //KingFisher 사용해서 이미지 캐싱 및 다운로드 해보기
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("here!!!!")
-
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCollectionViewCell", for: indexPath) as? PlacesCollectionViewCell else { return UICollectionViewCell() }
-            
-            let storelist = self.restrauntList[indexPath.row]
-        
-        cell.backgroundColor = UIColor.white
-        
-        cell.restTitle.text = storelist.mainTitle
-        cell.imageView.load(url: storelist.mainImgNormal!)
-        cell.places.text = storelist.addr1
-
+        if collectionView == self.bannerCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bannerCell", for: indexPath) as? BannerCollectionViewCell else { return UICollectionViewCell() }
+            cell.bannerImgView.image = UIImage(named: self.bannerImgLst[indexPath.row])
             
             return cell
+        } else if collectionView == collectionView {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCollectionViewCell", for: indexPath) as! PlacesCollectionViewCell
+        
+        if indexPath.row < restInfos.count {
+            let restInfo = restInfos[indexPath.row]
+            
+          
+            let url = URL(string: restInfo.urlString!)
+            cell.imageView.kf.setImage(with: url)
+            let name = restInfo.detail.place_name
+            cell.restTitle.text = name
+            cell.places.text = restInfo.distance(latitude: Double(y)!, longitude: Double(x)!) + "km"
+        }
+        
+        return cell
+    }
+        return UICollectionViewCell()
         
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-       if collectionView == self.collectionView {
-            return CGSize(width: self.collectionView.bounds.width / 2 - 10, height: 210)
+        
+        if collectionView == self.bannerCollectionView {
+            return CGSize(width: self.bannerCollectionView.bounds.width, height: self.bannerCollectionView.bounds.height)
+        }
+        
+        else if collectionView == self.collectionView {
+            return CGSize(width: 200, height: 210)
         }
         
         else {
@@ -272,82 +349,24 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
     }
-    
-    
+
     
 
 
-extension MainViewController {
-    func didRetrieveRestaurants(_ result: [Item]){
-        self.dismissIndicator()
-        self.restrauntList = result
-        self.collectionView.reloadData()
-
-    }
-    
-    func failedToRequest(message: String) {
-        dismissIndicator()
-       
-    }
-}
-
-extension UIImageView {
-    func load(url : String) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
-
-extension MainViewController : CLLocationManagerDelegate {
-    
-    func setupLocation() {
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-//        let coor = locationManager.location?.coordinate
-//        self.lat = coor!.latitude
-//        self.long = coor!.longitude
-    
-//        print("현재 위/경도 -> \(lat),\(long)")
-    }
-    
-    func locationManager(_ manger: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            print("GPS 권한 설정됨")
-//            self.presentAlert(title: "GPS 권한이 설정되었습니다.")
-        case .restricted, .notDetermined:
-            print("GPS 권한 설정되지 않음")
-//            self.presentAlert(title: "GPS 권한이 설정되지 않었습니다.")
-            setupLocation()
-        case .denied:
-            print("GPS 권한 요청 거부됨")
-//            self.presentAlert(title: "GPS 권한이 거부되었습니다.")
-            setupLocation()
-        default:
-            print("GPS: Default")
-        }
-    }
-    
-    // MARK: 위치 정보
+extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations[locations.count - 1]
-        let longtitude: CLLocationDegrees = location.coordinate.longitude
-        let latitude:CLLocationDegrees = location.coordinate.latitude
-        
-        print("지역: \(longtitude), \(latitude)")
+        if let coordinate = locations.last?.coordinate {
+            
+            self.x = String(coordinate.longitude)
+            self.y = String(coordinate.latitude)
+            print("위치 정보 불러오기 완료")
+        }
     }
     
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription + "🗺 ")
+    }
 }
+
+
+

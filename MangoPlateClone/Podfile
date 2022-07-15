@@ -15,5 +15,6 @@ pod 'Tabman', '~> 2.11'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'SwiftyJSON'
+pod 'Kingfisher'
 
 end

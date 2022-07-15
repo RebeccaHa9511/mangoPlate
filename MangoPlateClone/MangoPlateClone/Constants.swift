@@ -18,28 +18,25 @@ import Alamofire
 
 
 //}
-//
-//
-//
-struct JwtToken {
-    static var token: String = ""
+
+struct Key {
+  
+    static let kakaoHeaders: HTTPHeaders = [
+        "Authorization": "KakaoAK 75978051e0ad2b18aea7c577dabe8040"
+    ]
+    
+    static let naverHeaders: HTTPHeaders = [
+        "X-Naver-Client-Id" : "UnEPRBm5dkfZ_8EXRe8I",
+        "X-Naver-Client-Secret" : "YlEqSjADOZ"
+    ]
+    
+    
 }
+
 
 struct Constant {
-    static let BASE_URL = "http://apis.data.go.kr/"
-    static let CLIENT_ID =  "MnzknFttYIxmhjWWi0noTUtiWL8Tuk/e2VXnm2ifGdrqNRqM2MD0EdBQFo9yj0LdxP8zeGMyvTnIT82sjTSMzw=="
-    static var HEADERS: HTTPHeaders = ["x-access-token": JwtToken.token]
+    static let KAKAO_LOCAL_URL = "https://dapi.kakao.com/v2/local/search/keyword.json"
+    static let KAKAO_GEO_URL = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json"
+    static let NAVER_URL = "https://openapi.naver.com/v1/search/image"
 }
 
-public enum MusicApi {
-    static let requestUrl = "https://itunes.apple.com/search?"
-    static let mediaParam = "media=music"
-}
-
-
-// 사용하게될 Cell 문자열 묶음
-public struct Cell {
-    static let musicCellIdentifier = "MusicCell"
-    static let musicCollectionViewCellIdentifier = "MusicCollectionViewCell"
-    private init() {}
-}
